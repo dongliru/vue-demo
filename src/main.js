@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Loading from './components/loading'
-import VueRouter from 'vue-router';
- 
+import VueRouter from 'vue-router'
+import jQuery from 'jquery'
+import Bootstrap from 'bootstrap'
+
 //使用路由
 Vue.use(VueRouter);
- 
+
 //当然如果需要有组件进来的时候也是需要引入的
 import Ru from './components/ru.vue';
 import Yang from './components/yang.vue';
