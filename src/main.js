@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Loading from './components/loading'
-import VueRouter from 'vue-router'
 import jQuery from 'jquery'
-import Bootstrap from 'bootstrap'
+import VueRouter from 'vue-router'
+import jquery from 'jquery'
 
 //使用路由
 Vue.use(VueRouter);
