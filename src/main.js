@@ -7,6 +7,7 @@ import jquery from 'jquery'
 
 //使用路由
 Vue.use(VueRouter);
+window.Event = new Vue();
 
 //当然如果需要有组件进来的时候也是需要引入的
 import Ru from './components/ru.vue';
@@ -25,7 +26,11 @@ const router = new VueRouter({
     //当路径错误或没有这个路径的时候我们会给予一个默认路径
   ]
 });
+
+var Event = new Vue();
+Event.$emit('data',this.date)
 new Vue({
+  Event,
   router,
   el: '#app',
   render: h => h(App)

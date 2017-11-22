@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>当前日期：{{}}</div>
+    <div>当前日期：{{this.date}}</div>
     输入名称：<input type="text" placeholder="username">
     输入价钱：<input type="text" placeholder="price">
     <button class="btn btn-primary">点击提交</button>
@@ -21,15 +21,21 @@ export default {
   name: 'app',
   data () {
     return {
-          item:'1 '
+          item:'1 ',
+          date:''
     }
   },
+   mounted() {
+        this.today()
+    },
   methods:{
     toggle:function(num){
       this.item=num
     },
     today:function(){
-
+      var myDate = new Date();    
+      this.date = myDate.toLocaleDateString();
+      Event.$emit('date',this.date);
     }
   }
 }
