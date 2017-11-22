@@ -6,7 +6,7 @@
             <span class="col-md-3">花销</span>
             <span class="col-md-3">价钱</span>
         </div>
-        <div v-for="val in dataObj" class="row">
+        <div v-for="val in storageObj" class="row">
             <span class="col-md-3">{{time}}</span>
             <span class="col-md-3">{{val.name}}</span>
             <span class="col-md-3">{{val.spendname}}</span>
@@ -21,6 +21,7 @@ export default   {
         data(){
             return {
                 time:'',
+                storageObj:[],
                 dataObj:[{
                     time:'',
                     name:"",
@@ -29,8 +30,9 @@ export default   {
                 }],
             }
         },
-        created(){
+        mounted(){
             this.get();
+
         },
         methods:{
             get:function(){
@@ -44,9 +46,17 @@ export default   {
                     obj.spendname = spendname;
                     obj.price = price;
                     if(name.indexOf('茹')!=-1){
-                       _this.dataObj.push(obj)
+                       _this.dataObj.push(obj);
                     }
+                    for(var i=0;i<_this.dataObj.length;i++){
+                        window.localStorage.setItem('data'+i,JSON.stringify(_this.dataObj[i]));
+                        _this.storageObj.push(window.localStorage.getItem('data'+i));
+                    }
+                  
                 })
+            },
+            getLocalStorage:function(){
+                
             }
         }
 }

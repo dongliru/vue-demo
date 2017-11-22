@@ -4,16 +4,16 @@ import Loading from './components/loading'
 import jQuery from 'jquery'
 import VueRouter from 'vue-router'
 import jquery from 'jquery'
-import myDatepicker from 'vue-datepicker-simple'
+// import myDatepicker from 'vue-datepicker-simple'
 
 //使用路由
 Vue.use(VueRouter);
-const datepicker ={
-    install:function(Vue){
-        Vue.component('datepicker',myDatepicker)
-    }
-}
-Vue.use(datepicker);
+// const datepicker ={
+//     install:function(Vue){
+//         Vue.component('datepicker',myDatepicker)
+//     }
+// }
+// Vue.use(datepicker);
 window.Event = new Vue();
 
 //当然如果需要有组件进来的时候也是需要引入的
