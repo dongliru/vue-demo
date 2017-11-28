@@ -32,9 +32,12 @@ export default   {
         },
         mounted(){  // 加载生命周期
             //给storage初始化
-             this.storageObj=JSON.parse(window.localStorage.getItem('data'));
-            //  给dataObj初始化
              this.dataObj = JSON.parse(window.localStorage.getItem('data'));
+             for(var i=0;i<this.dataObj.length;i++){
+                 if(this.dataObj[i].name.indexOf('茹')!=-1){
+                    this.storageObj.push(this.dataObj[i]);
+                 }
+             }
             this.get();
         },
         methods:{
@@ -48,14 +51,13 @@ export default   {
                     obj.name=name;
                     obj.spendname = spendname;
                     obj.price = price;
+                    _this.dataObj.push(obj);
                     if(name.indexOf('茹')!=-1){
-                       _this.dataObj.push(obj);
+                         _this.storageObj.push(obj);
                     }
                      window.localStorage.setItem('data',JSON.stringify(_this.dataObj));
-                    _this.storageObj=JSON.parse(window.localStorage.getItem('data'));
-                    console.log(_this.stroageObj);
-                    
-                  
+
+            
                   
                 })
             },
