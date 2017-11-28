@@ -30,9 +30,12 @@ export default   {
                 }],
             }
         },
-        mounted(){
+        mounted(){  // 加载生命周期
+            //给storage初始化
+             this.storageObj=JSON.parse(window.localStorage.getItem('data'));
+            //  给dataObj初始化
+             this.dataObj = JSON.parse(window.localStorage.getItem('data'));
             this.get();
-
         },
         methods:{
             get:function(){
@@ -48,10 +51,11 @@ export default   {
                     if(name.indexOf('茹')!=-1){
                        _this.dataObj.push(obj);
                     }
-                    for(var i=0;i<_this.dataObj.length;i++){
-                        window.localStorage.setItem('data'+i,JSON.stringify(_this.dataObj[i]));
-                        _this.storageObj.push(window.localStorage.getItem('data'+i));
-                    }
+                     window.localStorage.setItem('data',JSON.stringify(_this.dataObj));
+                    _this.storageObj=JSON.parse(window.localStorage.getItem('data'));
+                    console.log(_this.stroageObj);
+                    
+                  
                   
                 })
             },
