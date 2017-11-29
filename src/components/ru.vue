@@ -32,12 +32,19 @@ export default   {
         },
         mounted(){  // 加载生命周期
             //给storage初始化
-             this.dataObj = JSON.parse(window.localStorage.getItem('data'));
-             for(var i=0;i<this.dataObj.length;i++){
-                 if(this.dataObj[i].name.indexOf('茹')!=-1){
-                    this.storageObj.push(this.dataObj[i]);
-                 }
+            if(JSON.parse(window.localStorage.getItem('data'))==null){
+                this.dataObj =[];
+                console.log(1)
+             }else {
+                 this.dataObj = JSON.parse(window.localStorage.getItem('data'));
+                 
              }
+             for(var i=0;i<this.dataObj.length;i++){
+                    if(this.dataObj[i].name.indexOf('茹')!=-1){
+                    this.storageObj.push(this.dataObj[i]);
+
+                }
+            }
             this.get();
         },
         methods:{
